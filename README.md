@@ -4,5 +4,5 @@ This respository (CuraStuff) contains various scripts and such that I created fo
 # Files
 
 ## AddLayerMessages
-__AddLayerMessages__ is a post processing script that can add M117 messages to the G-code file that Cura generates.
+_AddLayerMessages_ is a post processing script that can add M117 messages to the G-code file that Cura generates.
 
