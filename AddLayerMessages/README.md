@@ -13,18 +13,18 @@ To install this script, download it and copy it to the Cura 4.x or Cura 5.x post
 
 For example, for Cura 4.13.1 :
 
-   C:\Program Files\Ultimaker Cura 4.13.1\plugins\PostProcessingPlugin\scripts\
+   - C:\Program Files\Ultimaker Cura 4.13.1\plugins\PostProcessingPlugin\scripts\
 
 And for Cura 5.11.0 :
 
-   C:\Program Files\UltiMaker Cura 5.11.0\share\cura\plugins\PostProcessingPlugin\scripts\
+   - C:\Program Files\UltiMaker Cura 5.11.0\share\cura\plugins\PostProcessingPlugin\scripts\
 
 
 # Usage
 
 Once you've installed the script, fire up Cura then go to the "Add a script" window which can be accessed via :
 
-   Extensions -> Post Processing -> Modify G-Code -> Add a script
+   - Extensions -> Post Processing -> Modify G-Code -> Add a script
 
 If everything went well, you should see a script called "__Add M117 Layer Messages__" in the left part (pane) of the window, and a list of options in the right pane.  _(If you do not see the options in the right pane, see the 'Troubleshooting' section located further down in this README.md file.)_
 
@@ -34,17 +34,17 @@ The options are as follows :
 
    The keywords ({L}, {S}, etc) will be replaced with :
 
-      - {F} : The name of the file that is being sliced.  Note that if you slice the object, then save the file as a different name, the original file name will be used (which make sense if you think about it -- when you slice the file, Cura doesn't know what you are going to call the resulting G-Code file, so it does a _best guess_ as to what the file will be called).
+   - {F} : The name of the file that is being sliced.  Note that if you slice the object, then save the file as a different name, the original file name will be used (which make sense if you think about it -- when you slice the file, Cura doesn't know what you are going to call the resulting G-Code file, so it does a _best guess_ as to what the file will be called).
 
-	  - {L} : Current layer number.
+   - {L} : Current layer number.
 
-	  - {M} : Maximum layer number.
+   - {M} : Maximum layer number.
 
-	  - {P} : Percent complete.  Note that this is the calcuated from the number of __layers__ being printed, not from the amount of filament that is being extruded.
+   - {P} : Percent complete.  Note that this is the calcuated from the number of __layers__ being printed, not from the amount of filament that is being extruded.
 
-	  - {S} : The starting layer number.
+   - {S} : The starting layer number.
 
-	  - {D} : Debugging information (which really isn't of any use to anyone besides myself :-)
+   - {D} : Debugging information (which really isn't of any use to anyone besides myself :-)
 
 - __Add every Nth layer?__ : This option will insert the M117 line every so often.
 
@@ -66,7 +66,7 @@ The options are as follows :
 
    - __Layer count offset__ : This offset will be applied to LAYER_COUNT to correct for incorrectly calculated LAYER_COUNT values.  Use a negative value to decrease the layer count.  Use a positive value to increase the layer count.  Default is '-1', which works for Cura 4.x.
 
-- __One-based display?__ : Enable this if you want layer numbers to start at 1 instead of 0.  For example, if a print has 10 layers, by default they are numbered 0..9, however, if you enable this option, they will be numbered 1..10.  Default is 'false'.
+- __One-based display?__ : Enable this if you want layer numbers to start at 1 instead of 0.  For example, if a print has 10 layers, by default they are numbered 0..9, however, if you enable this option, they will be numbered 1..10.  Default is 'false' (not enabled).
 
 
 # Troubleshooting
