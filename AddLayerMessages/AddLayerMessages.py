@@ -29,8 +29,6 @@
 #
 ###############################################################################
 
-from UM.Logger import Logger                                    # [JonS]  For debugging purposes.
-
 from ..Script import Script
 from UM.Application import Application
 
@@ -196,22 +194,18 @@ class AddLayerMessages(Script):
         #
         if self.getSettingValueByKey("addToEveryNthLayer"):
             numEveryNthLayers = self.getSettingValueByKey("addToEveryNthLayerCount")
-            Logger.log("i", f"JonS : flagAddToEveryNthLayer is set to TRUE / Number of layers = {numEveryNthLayers}")
             flagAddToEveryNthLayer = True
 
         if self.getSettingValueByKey("addToFirstLayers"):
             numFirstLayers = self.getSettingValueByKey("addToFirstLayersCount")
-            Logger.log("i", f"JonS : flagAddToFirstLayers is set to TRUE / Number of layers = {numFirstLayers}")
             flagAddToFirstLayers = True
 
         if self.getSettingValueByKey("addToLastLayers"):
             numLastLayers = self.getSettingValueByKey("addToLastLayersCount")
-            Logger.log("i", f"JonS : flagAddToLastLayers is set to TRUE / Number of layers = {numLastLayers}")
             flagAddToLastLayers = True
 
         if self.getSettingValueByKey("addToEveryNthPercent"):
             everyNthPercent = self.getSettingValueByKey("addToEveryNthPercentPercentage")
-            Logger.log("i", f"JonS : flagAddToEveryNthPercent is set to TRUE / Percent = {everyNthPercent}.")
             flagAddToEveryNthPercent = True
 
         if self.getSettingValueByKey("applyLayerCountOffset"):
@@ -219,10 +213,8 @@ class AddLayerMessages(Script):
                 layerCountOffset = self.getSettingValueByKey("layerCountOffset")
 
         if self.getSettingValueByKey("oneBased"):
-            Logger.log("i", f"JonS : oneBased is set to TRUE.")
             layerOffset = 1                                             # Display layers as 1..10.
         else:
-            Logger.log("i", f"JonS : oneBased is set to FALSE.")
             layerOffset = 0                                             # Display layers as 0..9.
 
 
@@ -268,7 +260,6 @@ class AddLayerMessages(Script):
                     #   not 10.  So, we correct it here :
                     #
                     numLayers = str(int(numLayers) + int(layerCountOffset))
-                    Logger.log("i", f"JonS : Layer count offset is: {layerCountOffset}")
 
                     #
                     #   Our last printable layer (i.e., simply the
@@ -277,8 +268,6 @@ class AddLayerMessages(Script):
                     lastLayer = ( int(numLayers) - 1 )
 
                     lastLayerStart = int(lastLayer) - int(numLastLayers) + 1                # Where we start adding M117 mesgs back in.
-                    Logger.log("i", f"JonS : The value of lastLayer is: {lastLayer}")
-                    Logger.log("i", f"JonS : The value of lastLayerStart is: {str(lastLayerStart)}")
 
                     nextNthPercent = 0                                # If doing "Nth percent" check, this is when to output the next M117 mesg.
 
@@ -318,7 +307,6 @@ class AddLayerMessages(Script):
 
                     if flagAddToLastLayers == True:
                         if int(layerNum) >= int(lastLayerStart):
-                            #Logger.log("i", f"JonS : flagAddToLastLayers is TRUE 1  (layer {str(layerNum)})")
                             debugInfo = debugInfo + " (Add to last " + str(numLastLayers) + " layers (" + str(layerNum) + " in " + str(lastLayerStart) + ".." + str(lastLayer) + "))"
                             addM117 = True
 
